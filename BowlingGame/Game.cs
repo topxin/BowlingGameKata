@@ -2,16 +2,16 @@
 {
     public class Game
     {
-        private int Result { get; set; }
+        private int Score { get; set; }
 
-        public void Roll(int i)
+        public void Roll(int nbPins)
         {
-            Result += i;
+            Score += nbPins;
         }
 
-        public int Score()
+        public int CalculateScore()
         {
-            return Result;
+            return Score;
         }
     }
 }

@@ -13,7 +13,7 @@ namespace BowlingGameTest
             {
                 game.Roll(0);
             }
-            Assert.AreEqual(0, game.Score());
+            Assert.AreEqual(0, game.CalculateScore());
         }
 
         [Test]
@@ -24,7 +24,7 @@ namespace BowlingGameTest
             {
                 game.Roll(1);
             }
-            Assert.AreEqual(20, game.Score());
+            Assert.AreEqual(20, game.CalculateScore());
         }
     }
 }
