@@ -19,7 +19,12 @@ namespace BowlingGameTest
         [Test]
         public void Return_20_when_all_one_pin_striked_down()
         {
-
+            var game = new Game();
+            for (int i = 1; i <= 20; i++)
+            {
+                game.Roll(1);
+            }
+            Assert.AreEqual(20, game.Score());
         }
     }
 }
