@@ -36,6 +36,14 @@ namespace BowlingGameTest
             Assert.AreEqual(14, _game.CalculateScore());
         }
 
+        [Test]
+        public void Return_300_with_12_strikes()
+        {
+            RollForMany(12, 10);
+            Assert.AreEqual(300, _game.CalculateScore());
+
+        }
+
         private void RollForMany(int nbRoll, int nbPinsPerRoll)
         {
             for (int i = 1; i <= nbRoll; i++)

@@ -25,7 +25,7 @@
                     Score += Rolls[i];
                 }
             }
-            return Score;
+            return Score>300?300:Score;
         }
     }
 }
