@@ -3,7 +3,7 @@
     public class Game
     {
         private int Score { get; set; }
-        private int[] Rolls { get; set; } = new int[21];
+        private int[] Rolls { get; } = new int[21];
         private int CurrentIndex { get; set; }
 
         public void Roll(int nbPins)
@@ -16,11 +16,11 @@
         {
             for(int i=0; i<Rolls.Length-1; i++)
             {
-                if (Rolls[i] == 10)
+                if (IsStrikeRoll(i))
                 {
                     Score += (10 + Rolls[i + 1] + Rolls[i + 2]);
                 }   
-                else if(Rolls[i] + Rolls[i + 1] == 10)
+                else if(IsSpareRoll(i))
                 {
                     Score += (10 + Rolls[i + 2]);
                     i++;
@@ -31,6 +31,16 @@
                 }
             }
             return Score>300?300:Score;
+        }
+
+        private bool IsSpareRoll(int indexRoll)
+        {
+            return Rolls[indexRoll] + Rolls[indexRoll + 1] == 10;
+        }
+
+        private bool IsStrikeRoll(int indexRoll)
+        {
+            return Rolls[indexRoll] == 10;
         }
     }
 }
