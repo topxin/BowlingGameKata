@@ -14,11 +14,16 @@
 
         public int CalculateScore()
         {
-            for(int i=0; i<Rolls.Length; i++)
+            for(int i=0; i<Rolls.Length-1; i++)
             {
                 if (Rolls[i] == 10)
                 {
                     Score += (10 + Rolls[i + 1] + Rolls[i + 2]);
+                }   
+                else if(Rolls[i] + Rolls[i + 1] == 10)
+                {
+                    Score += (10 + Rolls[i + 2]);
+                    i++;
                 }
                 else
                 {

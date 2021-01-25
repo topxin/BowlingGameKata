@@ -44,6 +44,17 @@ namespace BowlingGameTest
 
         }
 
+        [Test]
+        public void Return_correct_score_with_one_spare()
+        {
+            _game.Roll(5);
+            _game.Roll(5);
+            _game.Roll(1);
+            _game.Roll(1);
+            RollForMany(16, 0);
+            Assert.AreEqual(13, _game.CalculateScore());
+        }
+
         private void RollForMany(int nbRoll, int nbPinsPerRoll)
         {
             for (int i = 1; i <= nbRoll; i++)
