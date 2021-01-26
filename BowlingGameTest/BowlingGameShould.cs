@@ -37,6 +37,19 @@ namespace BowlingGameTest
         }
 
         [Test]
+        public void Return_correct_score_with_two_strikes()
+        {
+            _game.Roll(3);
+            _game.Roll(3);
+            _game.Roll(10);
+            _game.Roll(5);
+            _game.Roll(2);
+            _game.Roll(10);
+            RollForMany(12, 0);
+            Assert.AreEqual(40, _game.CalculateScore());
+        }
+
+        [Test]
         public void Return_300_with_12_strikes()
         {
             RollForMany(12, 10);
